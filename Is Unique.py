@@ -3,15 +3,23 @@ Is Unique: Implement an algorithm to determine if a string has all unique charac
 What if you cannot use additional data structures?
 O(NlogN)
 
-thoughts, sort the string then use 2 pointers
+hints: use ASCII, convert to integer and use as index
+it is basiclly a transformation of hashtable 
+
 """
-def is_unique(s):
-  l = list(s)
-  l.sort()
-  i, j = 0, 1
-  while (i < j):
-    if l[i] == l[j]:
-      reutrn false
-    else:
-      i += 1
-      j += 1
+
+def unique(string):
+    # Assuming character set is ASCII (128 characters)
+    if len(string) > 128:
+        return False
+
+    char_set = [False for _ in range(128)]
+    for char in string:
+        val = ord(char)
+        if char_set[val]:
+            # Char already found in string
+            return False
+        char_set[val] = True
+
+    return True
+
