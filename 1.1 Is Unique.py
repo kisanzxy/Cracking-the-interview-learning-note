@@ -6,6 +6,10 @@ O(NlogN)
 hints: use ASCII, convert to integer and use as index
 it is basiclly a transformation of hashtable 
 
+A common approach in string manipulation problems is to edit the string starting from the end and working backwards. 
+This is useful because we have an extra buffer at the end, which allows us to change characters without worrying about 
+what we're overwriting.
+
 """
 
 def unique(string):
