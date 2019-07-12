@@ -7,15 +7,14 @@
 
 def string_compression(string):
     compressed = []
-    count = 1
+    count = 0
     i, j = 0, 1
-    while(i < j and j < len(string)):
-        if string[i] != string[j]:
+    for i in range(len(string)):
+        count += 1
+        if i+1 < len(string) and string[i] != string[i+1]:
             compressed.append(string[i]+str(count))
             count = 0
-            i = j
-        j += 1
-        count += 1
+
     compressed.append(string[-1]+str(count))
     return min(string, "".join(compressed), key = len)
 
